@@ -1,0 +1,27 @@
+xfdghjikolpòè+à
+ù7rfer
+r
+er
+llllllllll
+
+System.out.println("Il file esiste");
+			System.out.println(" ");
+			
+			 FileInputManager testo= new FileInputManager(filename);
+			 
+			 SequenzaOrdinata<String> nomi= new SequenzaOrdinata<String>();
+			 
+			 while(true)
+			 {
+				 String line= testo.readLine();
+				 if(line==null)
+					 break;
+				 nomi.add(line);
+			 }
+			 
+			 testo.close(); //Chiude il testo
+			 
+			 for(String scorri: nomi)
+			 {
+				 System.out.println(scorri);
+			 }

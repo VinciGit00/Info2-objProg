@@ -1,0 +1,3 @@
+S;Cataldo;50;FINESTRINO
+G;3,50;Luca,Franco;Pippo
+V;1;BGY;NYC;01/06;23.30;150;0

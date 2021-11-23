@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="PraticheLegali"/>
+	<classpathentry kind="src" path="Sfide"/>
+	<classpathentry kind="lib" path="C:/Users/Marco Vinciguerra/Documents/Librerie java/prog-4ed.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

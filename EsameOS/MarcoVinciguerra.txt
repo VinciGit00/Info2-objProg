@@ -1,0 +1,24 @@
+Marco Vinciguerra (codice matricola 1064889) esame di sistemi operativi.
+Traccia 14 b.
+Organizzazione del progetto: suddivisione in 2 package (Aeroporto e Prova), il primo contiene l'oggetto condiviso Aeroporto, la classe Thread Aereo e l'interfaccia Aeroportoif, mentre il secondo package contiene il main.
+La risorsa condivisa è la classe Aeroporto.
+La mutua esclusione e la sincronizzazione è garantita dalla sincronizzazione (in)diretta.
+Le classi sono 4:
+-Aeroportoif è un'interfaccia che contiene i metodi che poi verranno utilizzati dall'oggetto condiviso Aeroporto: 
+	·public void richiestaAtterraggio(String idaeromobile); ->gestisce l'atterraggio nella pista
+
+	·public void liberaPista(); ->gestisce la partenza dalla pista
+
+-Aeroporto è l'oggetto condiviso dai Thread, possiede i metodi implementati da Aeroportoif, come variabili possiede:
+	·private static final int capienzamax=3; ->numero massimo di aerei supportati nel gate
+	·int gateliberi; ->numero di gate liberi inizialmente inizializzato a capienzamax
+	·String aereoinPista; ->viene salvato su una variabile di tipo String l'aereo che in quel momento sta atterrando, inizializzato a "Pista vuota"
+	·int aereiAttesa; ->numero di aerei in volo in attesa che si liberi un gate, inizializzato a 0
+Per quanto riguarda il metodo public synchronized void richiestaAtterraggio(String idaeromobile) l'aereo sta in attesa finchè non c'è un gate libero, prima dell'attesa incrementa aereiAttesa e dopo il while lo decrementa.
+Sempre nello stesso metodo decrementa il numero di gate liberi
+
+Invece nel metodo public synchronized void liberaPista() incrementa il numero di gate liberi e poi fa uuna notify
+
+-Aereo: è il thread del programma, come campi contiene Aeroportoif e String ID, nel metodo run fa una richiesta di atterraggio, fa una sleep e poi libera la pista
+
+-Prova: è la classe con il main del programma, crea l'oggetto condiviso, crea i thread e poi li fa partire tramite una start.
